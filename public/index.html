@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 
-<html lang="en">
-
+<html lang="pt-BR">
+        
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CADASTRO PASSA A BOLA</title>
-        <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cadastro | Passa a Bola</title>
+    <link rel="stylesheet" href="css/style.css" />
     </head>
 
     <body>
 
+    <div class="container">
+
+        <img src="imgs/logo.jpg" alt="Logo Passa a Bola" class="logo" />
+        <h1>Cadastro - Passa a Bola</h1>
+        <form action="http://localhost:3000/cadastro" method="post">
+        <input id="nome" type="text" name="nome" placeholder="Nome completo" required />
+        <input id="email" type="email" name="email" placeholder="Email" required />
+        <input id="cidade" type="text" name="cidade" placeholder="Cidade" required />
+        <input id="estado" type="text" name="estado" placeholder="Estado" required />
+        <input id="cidade" type="number" name="idade" placeholder="Idade" required />
+        <button type="submit">Bora Jogar</button>
+        </form>
+
+    </div>
+
+    <script src="js/index.js"></script>
     </body>
 
 </html>
