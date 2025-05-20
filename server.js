@@ -46,6 +46,8 @@ app.post('/cadastro', (req, res) => {
     })
 
     res.sendFile(path.join(__dirname, 'public/html/successCad.html'))
+
+    console.log('eureca')
 })
 
 app.listen(port, () => {
