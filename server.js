@@ -1,17 +1,29 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const port = 3000
 
 // usdo de json no corpo de requisições
 app.use(express.json())
 
-// Para dados de formulário HTML
+// para dados de CSS
+app.use(express.static('public'))
+
+// para dados de formulário HTML
 app.use(express.urlencoded({ extended: true }))
 
-// rota post http://localhost:3000/cadastro
-app.post('/cadastro', (req, res) => {
-    console.log(req.body)
+// rota GET http://localhost:3000/cadastro
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/index.html'))
+})
 
+// rota GET http://localhost:3000/cadastro
+app.get('/cadastro', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/cadastro.html'))
+})
+
+// rota POST http://localhost:3000/cadastro
+app.post('/cadastro', (req, res) => {
     const {
         nome,
         email,
@@ -33,7 +45,7 @@ app.post('/cadastro', (req, res) => {
         idade,
     })
 
-    res.status(201).json({mensagem: 'Cadastro realizado com sucesso'})
+    res.sendFile(path.join(__dirname, 'public/html/successCad.html'))
 })
 
 app.listen(port, () => {
