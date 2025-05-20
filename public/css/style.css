@@ -41,7 +41,7 @@ body {
   }
   
   .destaque {
-    background: url('/public/imgs/agenciacorinthians-foto-213112-scaled.jpg') no-repeat center;
+    background: url('imgs/agenciacorinthians-foto-213112-scaled.jpg') no-repeat center;
     color: white;
     padding: 60px 20px;
     text-align: center;

@@ -1,7 +1,9 @@
 const express = require('express')
-const path = require('path')
 const app = express()
-const port = 3000
+
+const path = require('path')
+
+const { v4: uuidv4 } = require('uuid')
 
 app.use(express.json())
 app.use(express.static('public'))
@@ -27,24 +29,25 @@ app.post('/cadastro', (req, res) => {
         idade,
     } = req.body
 
+    const novoUsuario = {
+        id: uuidv4(),
+        nome,
+        email,
+        cidade,
+        estado,
+        idade
+    }
+
     if (!nome || !email || !cidade || !estado || !idade) {
         return res.status(400).json({erro: 'preencha todos os campos'})
     }
 
     // verificação basica para ver se o cadastro deu certo
-    console.log('Novo cadastro recebido: ', {
-        nome,
-        email, 
-        cidade,
-        estado,
-        idade,
-    })
+    console.log('Novo cadastro recebido: ', novoUsuario)
 
     res.sendFile(path.join(__dirname, 'public/html/successCad.html'))
-
-    console.log('eureca')
 })
 
-app.listen(port, () => {
+app.listen(3000, () => {
     console.log('servidor rodando em http://localhost:3000')
 })
